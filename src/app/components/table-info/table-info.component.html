@@ -2,20 +2,22 @@
   <h1>Table</h1>
 
   <div class="column-name">
-    <!-- TODO: put names of dynamic columns to here -->
-    <div class="column-element">
+    <!-- put names of dynamic columns to here -->
+    <div class="column-element" *ngFor="let columnName of columnNameAry">
       <h4>
-        <!-- TODO: put name here -->
+        <!-- put name here -->
+        {{ columnName }}
       </h4>
     </div>
   </div>
 
-  <div class="data-row">
-    <!-- TODO: put iteration of data here -->
+  <div class="data-row" *ngFor="let record of recordAry">
+    <!-- put iteration of data here -->
 
-    <div class="column-element">
+    <div class="column-element" *ngFor="let recordElem of record">
       <p>
-        <!-- TODO: put data here -->
+        <!-- put data here -->
+        {{ recordElem }}
       </p>
     </div>
   </div>
