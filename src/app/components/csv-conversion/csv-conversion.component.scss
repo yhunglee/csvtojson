@@ -1,0 +1,28 @@
+.conversion-container {
+  display: flex;
+  align-items: baseline;
+  margin: 48px;
+
+  .convertion.csv-to-json {
+    font-size: 1.2rem;
+    color: #9ac13b;
+    font-weight: medium 500;
+  }
+
+  textarea {
+    height: 150px;
+    width: auto;
+  }
+
+  .actions {
+    margin: auto 24px;
+  }
+
+  button.convertion.csv-to-json {
+    padding: 16px;
+
+    > span.icon {
+      margin-left: 8px;
+    }
+  }
+}
