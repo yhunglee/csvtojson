@@ -28,7 +28,7 @@ describe('TableInfoComponent', () => {
     const tableAry = [['name', 'address', 'company name']];
     component.tableAry = tableAry;
 
-    expect(component.columnNameAry).toBe(tableAry[0]);
+    expect(component.columnNameAry).toEqual(tableAry[0]);
   });
 
   it('should render both of column names and data rows', () => {
@@ -45,9 +45,9 @@ describe('TableInfoComponent', () => {
     ];
 
     component.tableAry = tableAry;
-    expect(component.tableAry).toBe(tableAry);
-    expect(component.columnNameAry).toBe(columnNameAry);
-    expect(component.recordAry).toBe(recordAry);
+    expect(component.tableAry).toEqual(tableAry);
+    expect(component.columnNameAry).toEqual(columnNameAry);
+    expect(component.recordAry).toEqual(recordAry);
 
   });
 });
