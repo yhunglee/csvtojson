@@ -1,5 +1,5 @@
 <div class="container-md">
-  <app-csv-conversion></app-csv-conversion>
+  <app-csv-conversion (csvAry)="onReceiveCSVInfo($event)"></app-csv-conversion>
 
-  <app-table-info></app-table-info>
+  <app-table-info [tableAry]="receivedAry"></app-table-info>
 </div>
