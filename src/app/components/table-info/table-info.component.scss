@@ -2,10 +2,10 @@
 .data-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+  border-bottom: 1px solid #e1ecc4;
 
   > .column-element {
-    border-top: 1px solid #e1ecc4;
-    -webkit-text-stroke: 1fr #e1ecc4;
+    padding: 1rem;
   }
 }
 
