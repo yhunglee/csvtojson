@@ -1,17 +1,22 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { EventEmitter } from 'events';
+import * as csv from "csvtojson";
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-csv-conversion',
   templateUrl: './csv-conversion.component.html',
   styleUrls: ['./csv-conversion.component.scss']
 })
-export class CsvConversionComponent implements OnInit {
+export class CsvConversionComponent implements OnInit, OnDestroy {
 
   @Output() csvAry = new EventEmitter();
 
   convertForm: FormGroup;
+
+  subscriptionForCSVFieldChange: Subscription = null
 
   constructor() { }
 
@@ -20,6 +25,10 @@ export class CsvConversionComponent implements OnInit {
     this._formInitial();
   }
 
+  ngOnDestroy() {
+
+    this.subscriptionForCSVFieldChange.unsubscribe();
+  }
 
   private _formInitial() {
 
@@ -30,6 +39,28 @@ export class CsvConversionComponent implements OnInit {
     });
 
     // reactive form -- end
+
+    this.subscriptionForCSVFieldChange = this.formCSV.valueChanges.subscribe(  (val) => {
+      console.log(`val: ${val}`); // debug
+
+      csv({
+        noheader: true,
+        output: 'csv',
+      }).fromString(val)
+        .then((csvAry: Array<any>) => {
+
+          console.log(`csvAry: ${JSON.stringify(csvAry)}`); // debug
+
+          // this.csvAry.emit(csvAry);
+
+
+        });
+
+      // let result = await csv({
+      //   //output: 'csv',
+      // }).fromString(val);
+      // console.log(`result: ${JSON.stringify(result)}`);
+    });
   }
 
   get formCSV() {
@@ -43,6 +74,21 @@ export class CsvConversionComponent implements OnInit {
 
   onSubmitForCSVToJSON() {
 
+    // Sample data:
+    // Name,Country,Company
+    // Marcus,USA,Apple Inc.
+    // Pei-Ming,Sweden,IKEA Furnitures
+    // Yu-Han,Finland,Nokia Communications
+
+    csv()
+      .fromString(this.formCSV.value)
+      .then((jsonObj) => {
+
+        this.formJSON.setValue(
+          JSON.stringify(jsonObj),
+        );
+
+      });
 
   }
 }
