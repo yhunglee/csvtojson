@@ -1,3 +1,8 @@
+@import "src/styles";
+.section.list-table-info {
+  margin: $specMargin;
+}
+
 .column-name,
 .data-row {
   display: grid;
