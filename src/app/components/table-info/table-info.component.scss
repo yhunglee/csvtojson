@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
   border-bottom: 1px solid #e1ecc4;
+  overflow-wrap: anywhere;
 
   > .column-element {
     padding: 1rem;
