@@ -1,3 +1,5 @@
+$specGreenColor: #9ac13b;
+
 .conversion-container {
   display: flex;
   align-items: baseline;
@@ -7,7 +9,7 @@
 
   .convertion.csv-to-json {
     font-size: 1.2rem;
-    color: #9ac13b;
+    color: $specGreenColor;
     font-weight: medium 500;
   }
 
@@ -21,8 +23,8 @@
     font-weight: 400;
 
     &:focus {
-      border: 1px solid #9ac13b;
-      outline-color: #9ac13b;
+      border: 1px solid $specGreenColor;
+      outline-color: $specGreenColor;
     }
   }
 
@@ -32,6 +34,10 @@
 
   button.convertion.csv-to-json {
     padding: 16px;
+    font-size: 1.2rem;
+    color: $specGreenColor;
+    font-weight: medium 500;
+    border-style: dashed;
 
     > span.icon {
       margin-left: 8px;
