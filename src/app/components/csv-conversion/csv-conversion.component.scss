@@ -1,6 +1,8 @@
 .conversion-container {
   display: flex;
   align-items: baseline;
+  justify-content: center;
+  flex: 1 1 auto;
   margin: 48px;
 
   .convertion.csv-to-json {
@@ -11,7 +13,7 @@
 
   textarea {
     height: 150px;
-    width: auto;
+    width: 100%;
   }
 
   .actions {
@@ -24,5 +26,10 @@
     > span.icon {
       margin-left: 8px;
     }
+  }
+
+  .input,
+  .output {
+    flex-grow: 2;
   }
 }
