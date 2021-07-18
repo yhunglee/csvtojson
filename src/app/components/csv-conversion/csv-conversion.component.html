@@ -3,11 +3,11 @@
     <h1>
       <label for="csv-input">CSV Data</label>
     </h1>
-    <textarea id="csv-input" cols="30" rows="10"></textarea>
+    <textarea id="csv-input" formControlName="csv"></textarea>
   </div>
 
   <div class="actions">
-    <button class="convertion csv-to-json">
+    <button class="convertion csv-to-json" (click)="onSubmitForCSVToJSON()">
       Convert
       <span class="icon">
         <i class="fas fa-greater-than"></i>
@@ -20,6 +20,6 @@
       <label for="json-output">JSON Data</label>
     </h1>
 
-    <textarea id="json-output" cols="30" rows="10"></textarea>
+    <textarea id="json-output" formControlName="json"></textarea>
   </div>
 </div>
