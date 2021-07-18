@@ -1,27 +1,25 @@
-<form [formGroup]="convertForm">
-  <div class="conversion-container">
-    <div class="csv input">
-      <h1>
-        <label for="csv-input">CSV Data</label>
-      </h1>
-      <textarea id="csv-input" formControlName="csv"></textarea>
-    </div>
-
-    <div class="actions">
-      <button class="convertion csv-to-json" (click)="onSubmitForCSVToJSON()">
-        Convert
-        <span class="icon">
-          <i class="fas fa-greater-than"></i>
-        </span>
-      </button>
-    </div>
-
-    <div class="json output">
-      <h1>
-        <label for="json-output">JSON Data</label>
-      </h1>
-
-      <textarea id="json-output" formControlName="json"></textarea>
-    </div>
+<div class="conversion-container" [formGroup]="convertForm">
+  <div class="csv input">
+    <h1>
+      <label for="csv-input">CSV Data</label>
+    </h1>
+    <textarea id="csv-input" formControlName="csv"></textarea>
   </div>
-</form>
+
+  <div class="actions">
+    <button class="convertion csv-to-json" (click)="onSubmitForCSVToJSON()">
+      Convert
+      <span class="icon">
+        <i class="fas fa-greater-than"></i>
+      </span>
+    </button>
+  </div>
+
+  <div class="json output">
+    <h1>
+      <label for="json-output">JSON Data</label>
+    </h1>
+
+    <textarea id="json-output" formControlName="json"></textarea>
+  </div>
+</div>
