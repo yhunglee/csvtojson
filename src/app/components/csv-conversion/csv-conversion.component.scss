@@ -1,3 +1,4 @@
+@import "src/styles";
 $specGreenColor: #9ac13b;
 
 .conversion-container {
@@ -5,7 +6,7 @@ $specGreenColor: #9ac13b;
   align-items: baseline;
   justify-content: center;
   flex: 1 1 auto;
-  margin: 48px;
+  margin: $specMargin;
 
   .convertion.csv-to-json {
     font-size: 1.2rem;
