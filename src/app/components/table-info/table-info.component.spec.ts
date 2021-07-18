@@ -10,7 +10,7 @@ describe('TableInfoComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ TableInfoComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,33 @@ describe('TableInfoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should only render column names in table', () => {
+
+    const tableAry = [['name', 'address', 'company name']];
+    component.tableAry = tableAry;
+
+    expect(component.columnNameAry).toBe(tableAry[0]);
+  });
+
+  it('should render both of column names and data rows', () => {
+
+    const columnNameAry = ['Name', 'Country', 'Company'];
+    const recordAry = [
+      ['Marcus', 'USA', 'Apple Inc.'],
+      ['Pei-Ming', 'Sweden', 'IKEA Furnitures'],
+      ['Yu-Han', 'Finland', 'Nokia Communications'],
+    ]
+    const tableAry = [
+      columnNameAry,
+      ...recordAry,
+    ];
+
+    component.tableAry = tableAry;
+    expect(component.tableAry).toBe(tableAry);
+    expect(component.columnNameAry).toBe(columnNameAry);
+    expect(component.recordAry).toBe(recordAry);
+
   });
 });
