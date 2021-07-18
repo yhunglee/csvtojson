@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { EventEmitter } from 'events';
 import * as csv from "csvtojson";
 import { Subscription } from 'rxjs';
 
@@ -12,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class CsvConversionComponent implements OnInit, OnDestroy {
 
-  @Output() csvAry = new EventEmitter();
+  @Output() csvAry: EventEmitter<Array<Array<string>>> = new EventEmitter<Array<Array<string>>>();
 
   convertForm: FormGroup;
 
@@ -41,25 +40,20 @@ export class CsvConversionComponent implements OnInit, OnDestroy {
     // reactive form -- end
 
     this.subscriptionForCSVFieldChange = this.formCSV.valueChanges.subscribe(  (val) => {
-      console.log(`val: ${val}`); // debug
+      // console.log(`val: ${val}`); // debug
 
       csv({
         noheader: true,
         output: 'csv',
       }).fromString(val)
-        .then((csvAry: Array<any>) => {
+        .then((csvAry: Array<Array<string>>) => {
 
-          console.log(`csvAry: ${JSON.stringify(csvAry)}`); // debug
-
-          // this.csvAry.emit(csvAry);
+          this.csvAry.emit(csvAry);
 
 
         });
 
-      // let result = await csv({
-      //   //output: 'csv',
-      // }).fromString(val);
-      // console.log(`result: ${JSON.stringify(result)}`);
+
     });
   }
 
