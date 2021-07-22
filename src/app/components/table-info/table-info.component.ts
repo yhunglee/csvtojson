@@ -12,10 +12,10 @@ export class TableInfoComponent implements OnInit {
    */
   @Input('tableAry')
   get tableAry() {
-    return this._tableAry || [];
+    return this.table || [];
   }
   set tableAry(ary) {
-    this._tableAry = ary || [];
+    this.table = ary || [];
   }
 
   /**
@@ -25,7 +25,7 @@ export class TableInfoComponent implements OnInit {
     return this.tableAry[0] || [];
   }
   set columnNameAry(ary) {
-    this._tableAry.splice(0, 1, ary);
+    this.tableAry.splice(0, 1, ary);
   }
 
   /**
@@ -41,7 +41,7 @@ export class TableInfoComponent implements OnInit {
   }
 
 
-  private _tableAry: Array<Array<String>> = [];
+  private table: Array<Array<string>> = [];
 
 
 
