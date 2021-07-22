@@ -14,7 +14,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule],
       declarations: [
-        AppComponent,CsvConversionComponent,TableInfoComponent
+        AppComponent, CsvConversionComponent, TableInfoComponent
       ],
     }).compileComponents();
   }));
@@ -35,12 +35,12 @@ describe('AppComponent', () => {
 
     // preparation for appComponent
     const fixture = TestBed.createComponent(AppComponent);
-    let appComponent = fixture.componentInstance;
+    const appComponent = fixture.componentInstance;
     fixture.detectChanges();
 
     // preparation for CsvConversionComponent
     const fixtureCsv = TestBed.createComponent(CsvConversionComponent);
-    let csvComponent = fixtureCsv.componentInstance;
+    const csvComponent = fixtureCsv.componentInstance;
     let csvAry: string[][] | undefined;
     csvComponent.ngOnInit();
 
