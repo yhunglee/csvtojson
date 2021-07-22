@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import * as csv from "csvtojson";
+import * as csv from 'csvtojson';
 import { Subscription } from 'rxjs';
 
 
@@ -15,7 +15,7 @@ export class CsvConversionComponent implements OnInit, OnDestroy {
 
   convertForm: FormGroup;
 
-  subscriptionForCSVFieldChange: Subscription = null
+  subscriptionForCSVFieldChange: Subscription = null;
 
   constructor() { }
 
@@ -33,8 +33,8 @@ export class CsvConversionComponent implements OnInit, OnDestroy {
 
     // reactive form -- start
     this.convertForm = new FormGroup({
-      'csv': new FormControl(''),
-      'json': new FormControl(''),
+      csv: new FormControl(''),
+      json: new FormControl(''),
     });
 
     // reactive form -- end
