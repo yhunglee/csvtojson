@@ -38,7 +38,7 @@ describe('TableInfoComponent', () => {
       ['Marcus', 'USA', 'Apple Inc.'],
       ['Pei-Ming', 'Sweden', 'IKEA Furnitures'],
       ['Yu-Han', 'Finland', 'Nokia Communications'],
-    ]
+    ];
     const tableAry = [
       columnNameAry,
       ...recordAry,
