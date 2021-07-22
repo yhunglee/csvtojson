@@ -82,7 +82,9 @@ describe('CsvConversionComponent', () => {
     tick();
 
 
-    jsonStr = `[{"Name":"Marcus","Country":"USA","Company":"Apple Inc."},{"Name":"Pei-Ming","Country":"Sweden","Company":"IKEA Furnitures"},{"Name":"Yu-Han","Country":"Finland","Company":"Nokia Communications"}]`;
+    jsonStr = `[{"Name":"Marcus","Country":"USA","Company":"Apple Inc."},
+    {"Name":"Pei-Ming","Country":"Sweden","Company":"IKEA Furnitures"},
+    {"Name":"Yu-Han","Country":"Finland","Company":"Nokia Communications"}]`;
 
     expect(component.formJSON.value).toEqual(jsonStr);
 
